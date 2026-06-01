@@ -1,0 +1,26 @@
+{
+  "alunos": [
+    {
+      "id": "1",
+      "nome": "Rafael Ribeiro",
+      "idade": "19",
+      "curso": "ADS",
+      "formado": false
+    },
+    {
+      "nome": "Lucas Fogaça",
+      "idade": 40,
+      "curso": "ADS",
+      "formado": true,
+      "id": "N-wpVPT8KmA"
+    },
+    {
+      "nome": "adroaldo",
+      "idade": 20,
+      "curso": "ADS",
+      "formado": false,
+      "id": "Y4wuEpkkg_U"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,67 @@
+<div class="card">
+
+  <h2>Lista de Alunos</h2>
+
+  @if (carregando) {
+    <p>Carregando...</p>
+  }
+
+  @if (!carregando && alunos.length === 0) {
+    <p>Nenhum aluno cadastrado.</p>
+  }
+
+  @if (!carregando && alunos.length > 0) {
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Idade</th>
+          <th>Curso</th>
+          <th>Formado</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (aluno of alunos; track aluno.id) {
+
+          <tr>
+            <td>{{ aluno.id }}</td>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.idade }}</td>
+            <td>{{ aluno.curso }}</td>
+
+            <td>
+              {{ aluno.formado ? 'Sim' : 'Não' }}
+            </td>
+
+            <td>
+
+              <button
+                class="editar"
+                (click)="editar(aluno)">
+                Editar
+              </button>
+
+              <button
+                class="excluir"
+                (click)="excluir(aluno)">
+                Excluir
+              </button>
+
+            </td>
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  }
+
+</div>

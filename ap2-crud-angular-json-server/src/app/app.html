@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+
+<main class="container">
+
+  <app-aluno-form
+    (salvo)="lista.carregarAlunos()">
+  </app-aluno-form>
+
+  <app-aluno-list
+    #lista>
+  </app-aluno-list>
+
+</main>
