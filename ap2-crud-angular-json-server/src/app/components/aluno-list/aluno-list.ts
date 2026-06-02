@@ -1,13 +1,15 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { Aluno } from '../../model/alunos';
 import { AlunoService } from '../../services/aluno.service';
 
 @Component({
   selector: 'app-aluno-list',
+  standalone: true,
   templateUrl: './aluno-list.html',
   styleUrl: './aluno-list.css',
 })
 export class AlunoList {
+  private readonly cdr = inject(ChangeDetectorRef);
   private readonly alunoService = inject(AlunoService);
 
   alunos: Aluno[] = [];
@@ -24,6 +26,8 @@ export class AlunoList {
       next: (dados) => {
         this.alunos = dados;
         this.carregando = false;
+
+        this.cdr.detectChanges();
       },
       error: (erro) => {
         console.error('Erro ao carregar alunos:', erro);
