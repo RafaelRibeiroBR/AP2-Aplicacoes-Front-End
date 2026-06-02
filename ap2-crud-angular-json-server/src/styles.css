@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    background-color: #2b323a;
+
+    color: white;
+
+    font-family: "Segoe UI", sans-serif;
+}

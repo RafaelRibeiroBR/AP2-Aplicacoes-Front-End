@@ -1,9 +1,21 @@
 nav {
-  background: #1976d2;
-  color: white;
+  background: linear-gradient(
+    90deg,
+    #5f1e1e 0%,
+    #3e1616 40%,
+    #150f0f 100%
+  );
+
+  border-right: 1px solid #30363d;  color: white;
   padding: 20px;
   text-align: center;
-  
+  border-radius:  10px;
+}
+
+.navbar {
+   max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 h1 {
