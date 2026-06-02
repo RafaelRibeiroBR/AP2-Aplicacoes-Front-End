@@ -1,25 +1,32 @@
 {
   "alunos": [
     {
-      "nome": "Rafael Ribeiro",
+      "nome": "Rafael Ribeiro Do Santos",
+      "idade": "19",
+      "curso": "Análise e Desenvolvimento de Sistemas",
+      "formado": false,
+      "id": "PTQ28n9_fFo"
+    },
+    {
+      "nome": "João Guilherme Silva de Moraes",
+      "idade": 20,
+      "curso": "Análise e Desenvolvimento de Sistemas",
+      "formado": false,
+      "id": "JzqF9Yui2TE"
+    },
+    {
+      "nome": "João Vitor do Santos Quadros",
+      "idade": 20,
+      "curso": "Análise e Desenvolvimento de Sistemas",
+      "formado": false,
+      "id": "FT7ogcO8Cm8"
+    },
+    {
+      "nome": "Leonardo Guimin Wust",
       "idade": 19,
-      "curso": "ADS",
+      "curso": "Análise e Desenvolvimento de Sistemas",
       "formado": false,
-      "id": "kIJOtuoj4BY"
-    },
-    {
-      "nome": "João Guilherme",
-      "idade": 20,
-      "curso": "ADS",
-      "formado": false,
-      "id": "vPsP13wSXeU"
-    },
-    {
-      "nome": "João Quadros",
-      "idade": 20,
-      "curso": "ADS",
-      "formado": false,
-      "id": "nKUvcCYwlYg"
+      "id": "vBz_gyCaNgw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

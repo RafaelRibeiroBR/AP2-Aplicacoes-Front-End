@@ -36,27 +36,67 @@ export class AlunoList {
     });
   }
 
-  editar(aluno: Aluno): void {
-    if (!aluno.id) {
-      return;
-    }
+ editar(aluno: Aluno): void {
 
-    const novoNome = prompt('Novo nome:', aluno.nome);
-
-    if (!novoNome) {
-      return;
-    }
-
-    const alunoAtualizado: Aluno = {
-      ...aluno,
-      nome: novoNome
-    };
-
-    this.alunoService.atualizar(aluno.id, alunoAtualizado).subscribe({
-      next: () => this.carregarAlunos(),
-      error: (erro) => console.error('Erro ao editar aluno:', erro)
-    });
+  if (!aluno.id) {
+    return;
   }
+
+  const novoNome = prompt('Nome:', aluno.nome);
+
+  if (novoNome === null) {
+    return;
+  }
+
+  const novaIdade = prompt(
+    'Idade:',
+    aluno.idade.toString()
+  );
+
+  if (novaIdade === null) {
+    return;
+  }
+
+  const novoCurso = prompt(
+    'Curso:',
+    aluno.curso
+  );
+
+  if (novoCurso === null) {
+    return;
+  }
+
+  const novoFormado = confirm(
+    'Aluno está formado?'
+  );
+
+  const alunoAtualizado: Aluno = {
+    ...aluno,
+    nome: novoNome,
+    idade: String(novaIdade),
+    curso: novoCurso,
+    formado: novoFormado
+  };
+
+  this.alunoService.atualizar(
+    aluno.id,
+    alunoAtualizado
+  ).subscribe({
+
+    next: () => {
+      this.carregarAlunos();
+    },
+
+    error: (erro) => {
+      console.error(
+        'Erro ao editar aluno:',
+        erro
+      );
+    }
+
+  });
+
+}
 
   excluir(aluno: Aluno): void {
     if (!aluno.id) {

@@ -11,9 +11,17 @@ import { AlunoService } from '../../services/aluno.service';
   styleUrls: ['./aluno-form.css']
 })
 export class AlunoForm {
+
   @Output() salvo = new EventEmitter<void>();
 
   private readonly alunoService = inject(AlunoService);
+
+  mensagemSucesso = '';
+  mensagemErro = '';
+
+  modoEdicao = false;
+
+  alunoEditandoId: number | string | undefined;
 
   aluno: Aluno = {
     nome: '',
@@ -23,9 +31,16 @@ export class AlunoForm {
   };
 
   salvar(): void {
+
+    this.mensagemSucesso = '';
+    this.mensagemErro = '';
+
     this.alunoService.criar(this.aluno).subscribe({
+
       next: () => {
-        console.log('Aluno salvo com sucesso');
+
+        this.mensagemSucesso =
+          'Aluno cadastrado com sucesso!';
 
         this.aluno = {
           nome: '',
@@ -34,9 +49,17 @@ export class AlunoForm {
           formado: false
         };
 
-        console.log('Emitindo evento salvo');
         this.salvo.emit();
+      },
+
+      error: () => {
+
+        this.mensagemErro =
+          'Erro ao cadastrar aluno.';
+
       }
+
     });
+
   }
 }

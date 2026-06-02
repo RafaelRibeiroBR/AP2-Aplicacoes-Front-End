@@ -1,50 +1,110 @@
-<div class="card">
-  <h2>Cadastro de Alunos</h2>
+@if (mensagemSucesso !== '') {
 
-  <form (ngSubmit)="salvar()">
+  <div class="sucesso">
+    {{ mensagemSucesso }}
+  </div>
 
-    <div class="campo">
-      <label>Nome</label>
-      <input
-        type="text"
-        [(ngModel)]="aluno.nome"
-        name="nome"
-        required
-      />
-    </div>
+}
 
-    <div class="campo">
-      <label>Idade</label>
-      <input
-        type="number"
-        [(ngModel)]="aluno.idade"
-        name="idade"
-        required
-      />
-    </div>
+@if (mensagemErro !== '') {
 
-    <div class="campo">
-      <label>Curso</label>
-      <input
-        type="text"
-        [(ngModel)]="aluno.curso"
-        name="curso"
-        required
-      />
-    </div>
+  <div class="erro">
+    {{ mensagemErro }}
+  </div>
 
-    <div class="checkbox">
+}
+
+<form
+  (ngSubmit)="salvar()"
+  #formAluno="ngForm">
+
+  <div class="campo">
+
+    <label for="nome">Nome</label>
+
+    <input
+      id="nome"
+      type="text"
+      name="nome"
+      [(ngModel)]="aluno.nome"
+      required
+      #nome="ngModel">
+
+    @if (nome.invalid && nome.touched) {
+      <small class="erro">
+        Nome é obrigatório.
+      </small>
+    }
+
+  </div>
+
+  <div class="campo">
+
+    <label for="idade">Idade</label>
+
+    <input
+      id="idade"
+      type="number"
+      name="idade"
+      [(ngModel)]="aluno.idade"
+      required
+      min="1"
+      #idade="ngModel">
+
+    @if (idade.invalid && idade.touched) {
+      <small class="erro">
+        Informe uma idade válida.
+      </small>
+    }
+
+  </div>
+
+  <div class="campo">
+
+    <label for="curso">Curso</label>
+
+    <input
+      id="curso"
+      type="text"
+      name="curso"
+      [(ngModel)]="aluno.curso"
+      required
+      #curso="ngModel">
+
+    @if (curso.invalid && curso.touched) {
+      <small class="erro">
+        Curso é obrigatório.
+      </small>
+    }
+
+  </div>
+
+  <div class="checkbox-container">
+
+    <label class="checkbox-label">
+
       <input
         type="checkbox"
-        [(ngModel)]="aluno.formado"
         name="formado"
-      />
-      <label>Formado</label>
-    </div>
+        [(ngModel)]="aluno.formado">
 
-    <button type="submit">
+      <span>Aluno Formado</span>
+
+    </label>
+
+  </div>
+
+  <div class="acoes-formulario">
+
+    <button
+      type="submit"
+      class="btn-salvar"
+      [disabled]="formAluno.invalid">
+
       Salvar Aluno
+
     </button>
 
-  </form>
-</div>
+  </div>
+
+</form>

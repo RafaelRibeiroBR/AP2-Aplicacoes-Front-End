@@ -28,7 +28,7 @@ input {
   padding: 10px;
   border: 1px solid #000000;
   border-radius: 5px;
-  background-color: #3d4550;
+  background-color: #ffffff;
 }
 
 .checkbox {
@@ -52,4 +52,15 @@ button {
 
 button:hover {
   opacity: 0.9;
+}
+
+.sucesso {
+  background: rgba(35, 134, 54, 0.2);
+  border: 1px solid #238636;
+  color: #7ee787;
+
+  padding: 12px;
+  border-radius: 10px;
+
+  margin-bottom: 15px;
 }
